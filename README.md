@@ -1,27 +1,70 @@
-# ChatRoom
+# Angular Chat Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+This Angular project is a chat application designed to demonstrate real-time communication capabilities using Angular and WebSocket. It features a dynamic conversation list component that allows users to interact and engage in conversations seamlessly.
 
-## Development server
+![application preview](./chatroom-preview.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Project Structure
 
-## Code scaffolding
+The core of the application resides in `/src/app/`, where the main components, services, and models are defined. The `ConversationListComponent` is a key component that manages the display of conversations and integrates various services for real-time data handling.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- Real-time chat functionality
+- Dynamic conversation list
+- User authentication and management
+- Responsive design for various screen sizes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js and npm (Node Package Manager)
+- Angular CLI
 
-## Running end-to-end tests
+### Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Clone the repository and navigate to the project directory:
 
-## Further help
+```bash
+git clone https://yourrepositoryurl.git
+cd your-angular-chat-app
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Install the required npm packages:
+
+```bash
+npm install
+```
+
+### Running the application
+
+Lauch the frontend server:
+
+```bash
+npm run start
+```
+
+Lauch the backend server:
+
+```bash
+npm run startserver
+```
+
+Navigate to http://localhost:4200/ to view the application.
+
+### Members of chatroom
+
+There are three members included for testing:
+
+| User              | Password |
+|-------------------|----------|
+| member1@test.com  | pass1    |
+| member2@test.com  | pass2    |
+| member3@test.com  | pass3    |
+
+## Development Highlights
+
+* WebSocket Integration: Utilizes WebSocketService for real-time messaging.
+* State Management: Leverages Angular's Store for managing the state of members and conversations.
+* Service Injection: Demonstrates the use of Angular's dependency injection for services like MembersService and ConversationsService.
