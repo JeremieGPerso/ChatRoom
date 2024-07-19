@@ -8,13 +8,17 @@ import { receiveLastMessage } from '../redux/conversations.actions';
   providedIn: 'root',
 })
 export class WebSocketService {
-  websocket: WebSocket;
+  websocket?: WebSocket;
   store = inject(Store);
 
+  userId: string = '';
+
   constructor() {
-    let userId: string = '';
-    this.store.select(selectUserId).subscribe((id) => (userId = id));
-    this.websocket = new WebSocket('ws://localhost:8080?userId=' + userId);
+    this.store.select(selectUserId).subscribe((id) => (this.userId = id));
+  }
+
+  connect() {
+    this.websocket = new WebSocket('ws://localhost:8080?userId=' + this.userId);
 
     this.websocket.onopen = () => {
       console.log('WebSocket opened');
@@ -51,7 +55,7 @@ export class WebSocketService {
   }
 
   sendMessage(message: string, chatId: string) {
-    this.websocket.send(
+    this.websocket?.send(
       JSON.stringify({
         chatId,
         content: message,
@@ -61,6 +65,6 @@ export class WebSocketService {
   }
 
   close() {
-    this.websocket.close();
+    this.websocket?.close();
   }
 }

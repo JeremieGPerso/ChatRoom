@@ -6,7 +6,6 @@ import {
   login,
   loginFailure,
   loginSuccess,
-  logout,
 } from '../redux/auth.actions';
 
 @Injectable({
@@ -24,11 +23,11 @@ export class AuthService {
         loginSuccess({ userId: storedUserId, token: storedToken })
       );
     }
-    // this.store.select('auth').subscribe((auth) => {
-    //   if (auth.error) {
-    //     console.dir(auth.error);
-    //   }
-    // });
+
+    this.store.select('auth').subscribe((auth) => {
+      localStorage.setItem('userId', auth.userId);
+      localStorage.setItem('token', auth.token);
+    });
   }
 
   login({
@@ -54,9 +53,5 @@ export class AuthService {
           return of(error);
         })
       );
-  }
-
-  logout() {
-    this.store.dispatch(logout({ message: 'Logged out' }));
   }
 }

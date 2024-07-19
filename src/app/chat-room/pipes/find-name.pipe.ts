@@ -7,7 +7,7 @@ import { MemberModel } from '../../core/models/member.model';
 })
 export class FindNamePipe implements PipeTransform {
 
-  transform(members: MemberModel[] | null, senderId: string): string {
+  transform(members: MemberModel[] | null, senderId: string | null): string {
     const name = members?.find((m) => m.id === senderId)?.name;
     return name ?? '';
   }

@@ -1,7 +1,8 @@
 <div class="chat-room">
   <div class="conversation-list">
     <div class="conversation-list-header">
-      <h2>Conversations</h2>
+      <h2>Hello {{members$ | async | findName: (userId$ | async)}}</h2>
+      <button class="logout-button" (click)="logout()">>]</button>
     </div>
     <div class="conversation-list-body">
         @for (conversation of conversations$ | async; track conversation.id) {

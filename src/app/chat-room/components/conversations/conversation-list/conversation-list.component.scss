@@ -15,6 +15,20 @@
 
 .conversation-list-header {
     color: white;
+    position: relative
+}
+
+.logout-button {
+  position: absolute;
+  right: 0;
+  top: -5px;
+    color: white;
+    background-color: crimson;
+    border: none;
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    cursor: pointer;
 }
 
 .chat-messaging {

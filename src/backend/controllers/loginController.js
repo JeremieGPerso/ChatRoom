@@ -22,7 +22,7 @@ module.exports.login = (req, res, next) => {
               userEmail: email,
             },
             "RANDOM_TOKEN_SECRET",
-            { expiresIn: "1min" }
+            { expiresIn: "1hour" }
           ),
         });
     }
