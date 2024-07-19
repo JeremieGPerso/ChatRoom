@@ -1,0 +1,12 @@
+@if(conversation){
+    <a routerLink="/conversations/{{conversation.id}}" routerLinkActive="active">
+    <div class="card-conversation">
+        <img class="avatar" [src]="avatarUrl" alt="avatar" />
+        <div class="details">
+            <div class="sender">{{name}}</div>
+            <div class="content">{{conversation.lastMessage.content}}</div>
+        </div>
+        <div class="timestamp">{{conversation.lastMessage.timestamp | elapsedTime}}</div>
+    </div>
+    </a>
+}

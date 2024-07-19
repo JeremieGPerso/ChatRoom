@@ -1,0 +1,13 @@
+@if(message){
+    <div class="message-container" [ngClass]="{flipped: flipped}">
+        <img
+            class="avatar"
+            [src]="avatarUrl"
+            alt="avatar">
+        <div class="card-message">
+            <div class="sender">{{name}}</div>
+            <div class="content">{{message.content}}</div>
+            <div class="timestamp">{{message.timestamp | elapsedTime}}</div>
+        </div>
+    </div>
+}

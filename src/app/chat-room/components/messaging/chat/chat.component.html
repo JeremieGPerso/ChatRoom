@@ -1,0 +1,34 @@
+<div class="chat-container">
+  @let messages = messages$ | async; @if (messages?.isLoading) {
+  <div class="loading-message">Loading messages...</div>
+  } @else if (messages?.error) {
+  <div class="error-message">{{ messages?.error }}</div>
+  } @else {
+  <div class="message-list">
+    @for (message of messages?.messages | reverse; track $index) {
+    <app-message
+      [message]="message"
+      [name]="members$ | async | findName:message.sender"
+      [avatarUrl]="members$ | async | findAvatar:message.sender"
+      [flipped]="message.sender === (userId$ | async)"
+    ></app-message>
+    }
+  </div>
+
+  <div class="message-input">
+    <textarea
+      class="text-input"
+      rows="4"
+      placeholder="Type your message here"
+      [(ngModel)]="typedMessage"
+    ></textarea>
+    <button
+      class="send-button"
+      [disabled]="typedMessage.length === 0"
+      (click)="sendMessageHandler()"
+    >
+      Send
+    </button>
+  </div>
+  }
+</div>

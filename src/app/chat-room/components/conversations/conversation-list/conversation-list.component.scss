@@ -1,0 +1,26 @@
+.chat-room {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgb(2, 93, 111) 100%);
+}
+
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.conversation-list-header {
+    color: white;
+}
+
+.chat-messaging {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+}

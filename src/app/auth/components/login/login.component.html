@@ -1,0 +1,29 @@
+@let auth = auth$ | async;
+@if(auth?.isLoading)
+{
+    <div class="loading-message">Authenticating...</div>
+}
+@else if(auth?.error)
+{
+    <div class="error-message">
+        {{ auth?.error }}
+        <button class="submit-button" (click)="clearError()">Try Again</button>
+    </div>
+}
+@else
+{
+    <form class="login-form" [formGroup]="form" (ngSubmit)="submitLogin()">
+        <fieldset>
+            <legend>Login</legend>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="submit-button" [disabled]="form.invalid">Login</button>
+        </fieldset>
+    </form>
+}
