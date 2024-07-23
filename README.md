@@ -27,8 +27,8 @@ The core of the application resides in `/src/app/`, where the main components, s
 Clone the repository and navigate to the project directory:
 
 ```bash
-git clone https://yourrepositoryurl.git
-cd your-angular-chat-app
+git clone https://github.com/JeremieGPerso/ChatRoom.git
+cd ChatRoom
 ```
 
 Install the required npm packages:
